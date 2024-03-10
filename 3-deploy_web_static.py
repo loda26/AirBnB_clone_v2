@@ -7,7 +7,7 @@ from fabric.api import *
 from datetime import datetime
 from os.path import exists
 
-env.hosts = ['35.175.132.97', '3.90.70.164']
+env.hosts = ["35.175.132.97", "3.90.70.164"]
 
 def do_pack():
     """generates a .tgz archive from the contents of the web_static folder
