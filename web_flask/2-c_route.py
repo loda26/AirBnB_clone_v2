@@ -12,9 +12,9 @@ def hbnb():
     """ Returns some text. """
     return 'HBNB'
 
-@app.route('/c/<text>', strict_slashes=False)
-def c_text():
-    """ Returns some text. """
+@app.route('/c/<text>')
+def c_text(text):
+    """ replace text with variable. """
     text = text.replace('_', ' ')
     return 'C {}'.format(text)
 
