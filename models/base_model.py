@@ -10,6 +10,8 @@ import sqlalchemy
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 import uuid
+from sqlalchemy.orm import mapped_column
+
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
@@ -22,9 +24,9 @@ else:
 class BaseModel:
     """The BaseModel class from which future classes will be derived"""
     if models.storage_t == "db":
-        id = Column(String(60), primary_key=True)
-        created_at = Column(DateTime, default=datetime.utcnow)
-        updated_at = Column(DateTime, default=datetime.utcnow)
+        id = mapped_column(String(60), primary_key=True, sort_order=-3)
+        created_at = mapped_column(DateTime, default=datetime.utcnow, sort_order=-2)
+        updated_at = mapped_column(DateTime, default=datetime.utcnow, sort_order=-1)
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
